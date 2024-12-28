@@ -2,8 +2,16 @@
     {
         "guid": "book_001",
         "title": "Berlin — Panorama einer Weltstadt",
-        "file_path": "panorama-einer-weltstadt.epub",
+        "file_name": "panorama-einer-weltstadt.epub",
         "author": "Karl Gutzkow",
+        "cover": "https://www.gutenberg.org/cache/epub/9977/pg9977.cover.medium.jpg"
+    },
+
+    {
+        "guid": "book_002",
+        "title": "Eine geshichte",
+        "file_name": "test-file.epub",
+        "author": "Katja",
         "cover": "https://www.gutenberg.org/cache/epub/9977/pg9977.cover.medium.jpg"
     }
 ]

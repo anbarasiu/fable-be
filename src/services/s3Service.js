@@ -1,3 +1,4 @@
+require('dotenv').config();
 const AWS = require('aws-sdk');
 
 const s3 = new AWS.S3({
@@ -8,11 +9,12 @@ const s3 = new AWS.S3({
 
 const BUCKET_NAME = process.env.BUCKET_NAME;
 
-exports.getBook = async (bookId) => {
+exports.getBook = async (fileName) => {
     const params = {
         Bucket: BUCKET_NAME,
-        Key: `books/${bookId}`
+        Key: `${fileName}`,
+        Expires: 3600 // URL expiration time in seconds
     };
-    const data = await s3.getObject(params).promise();
-    return data.Body.toString('utf-8');
+    const url = s3.getSignedUrl('getObject', params);
+    return url;
 };

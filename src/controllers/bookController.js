@@ -1,6 +1,8 @@
 const s3Service = require('../services/s3Service');
 const fs = require('fs').promises;
 const path = require('path');
+const AWS = require('aws-sdk');
+const s3 = new AWS.S3();
 
 exports.getBooks = async (req, res) => {
     try {
@@ -14,9 +16,9 @@ exports.getBooks = async (req, res) => {
 };
 
 exports.getBook = async (req, res) => {
-    const { bookId } = req.params;
+    const { fileName } = req.params;
     try {
-        const book = await s3Service.getBook(bookId);
+        const book = await s3Service.getBook(fileName);
         res.send(book);
     } catch (error) {
         res.status(500).json({ error: error.message });
