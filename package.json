@@ -12,8 +12,10 @@
   "dependencies": {
     "aws-sdk": "^2.1692.0",
     "body-parser": "^1.20.3",
+    "caller": "^1.1.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "winston": "^3.17.0"
   }
 }

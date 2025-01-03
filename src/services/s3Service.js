@@ -1,5 +1,6 @@
 require('dotenv').config();
 const AWS = require('aws-sdk');
+const logger = require('../utils/logger');
 
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -15,6 +16,12 @@ exports.getBook = async (fileName) => {
         Key: `${fileName}`,
         Expires: 3600 // URL expiration time in seconds
     };
-    const url = s3.getSignedUrl('getObject', params);
-    return url;
+    try {
+        const url = s3.getSignedUrl('getObject', params);
+        logger.info(`Generated signed URL for file: ${fileName}`);
+        return url;
+    } catch (error) {
+        logger.error(`Error generating signed URL for file ${fileName}: ${error.message}`);
+        throw error;
+    }
 };
