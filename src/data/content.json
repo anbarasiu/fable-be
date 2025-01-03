@@ -8,10 +8,10 @@
     },
 
     {
-        "guid": "book_002",
-        "title": "Eine geshichte",
-        "file_name": "test-file.epub",
-        "author": "Katja",
+        "guid": "book_003",
+        "title": "Des Kaisers Neue Kleider",
+        "file_name": "des-kaisers-neue-kleider.epub",
+        "author": "Hans Christian Andersen",
         "cover": "https://www.gutenberg.org/cache/epub/9977/pg9977.cover.medium.jpg"
     }
 ]
